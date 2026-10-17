@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>IdroTrack - Variante Layout Split Dashboard</title>
+<!-- Tailwind CSS CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Outfit & Inter & Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="base-styling">
+  body {
+    font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+  /* Hide scrollbar for clean horizontal snap */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  /* Glass card pop animation on add */
+  @keyframes cupPop {
+    0% { transform: scale(0.85); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+  }
+  .pop-anim {
+    animation: cupPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes floatMascot {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+  .mascot-float {
+    animation: floatMascot 3s ease-in-out infinite;
+  }
+</style>
+</head>
+<body class="bg-[#ebf4f8] text-[#131b2e] min-h-screen flex justify-center py-0 sm:py-6 selection:bg-[#06b6d4]/20">
+<!-- Mobile Frame Container (Strict 390px width target) -->
+<div class="w-full max-w-[390px] bg-[#faf8ff] min-h-screen sm:min-h-[844px] sm:rounded-[40px] sm:shadow-2xl sm:border border-[#dae2fd]/70 flex flex-col justify-between overflow-hidden relative">
+<!-- TOP CONTENT WRAPPER -->
+<div class="flex-1 flex flex-col">
+<!-- BEGIN: StatusBar -->
+<header class="pt-3 px-6 pb-2 flex justify-between items-center text-sm font-semibold tracking-tight text-[#131b2e]" data-purpose="ios-status-bar">
+<span class="font-medium text-xs tracking-tight">9:41</span>
+<div class="flex items-center space-x-2 text-[#131b2e]">
+<!-- Cellular Icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 17 12">
+<rect height="4" rx="0.5" width="2.5" x="0" y="8"></rect>
+<rect height="6.5" rx="0.5" width="2.5" x="4" y="5.5"></rect>
+<rect height="9" rx="0.5" width="2.5" x="8" y="3"></rect>
+<rect height="12" rx="0.5" width="2.5" x="12" y="0"></rect>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-4 h-3.5 fill-current" viewbox="0 0 16 12">
+<path d="M8 2.5C10.6 2.5 13 3.6 14.7 5.3L16 3.9C13.9 1.8 11.1 0.5 8 0.5C4.9 0.5 2.1 1.8 0 3.9L1.3 5.3C3 3.6 5.4 2.5 8 2.5ZM8 6.5C9.6 6.5 11.1 7.2 12.1 8.3L13.5 6.9C12.1 5.4 10.1 4.5 8 4.5C5.9 4.5 3.9 5.4 2.5 6.9L3.9 8.3C4.9 7.2 6.4 6.5 8 6.5ZM9.5 10.5C9.5 9.67 8.83 9 8 9C7.17 9 6.5 10.5C6.5 11.33 7.17 12 8 12C8.83 12 9.5 11.33 9.5 10.5Z"></path>
+</svg>
+<!-- Battery Icon -->
+<svg class="w-6 h-3 fill-current" viewbox="0 0 24 12">
+<rect fill="none" height="11" rx="3" stroke="currentColor" width="20" x="0.5" y="0.5"></rect>
+<rect height="8" rx="1.5" width="14" x="2" y="2"></rect>
+<path d="M22 4C22.6 4.4 23 5.1 23 6C23 6.9 22.6 7.6 22 8V4Z" fill="currentColor"></path>
+</svg>
+</div>
+</header>
+<!-- END: StatusBar -->
+<!-- Scrollable Main Content -->
+<main class="px-4 pt-1 pb-4 space-y-3 flex-1 overflow-y-auto" data-purpose="app-body">
+<!-- BEGIN: Header -->
+<section class="space-y-2 pt-0.5" data-purpose="header-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#06b6d4] to-[#22d3ee] flex items-center justify-center text-white shadow-sm shadow-cyan-500/25 ring-2 ring-[#acedff]/60">
+<svg class="w-5 h-5 fill-current text-white" viewbox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-[#131b2e] font-heading leading-tight">IdroTrack</h1>
+</div>
+</div>
+<!-- Profile Button -->
+<button aria-label="Profilo utente" class="w-9 h-9 rounded-xl bg-white border border-[#dae2fd] shadow-sm flex items-center justify-center text-[#00687a] hover:bg-[#f2f3ff] active:scale-95 transition-all">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88a9.947 9.947 0 0 1 12.28 0C16.43 19.18 14.03 20 12 20z"></path></svg>
+</button>
+</div>
+<!-- Date & Goal Badges Bar -->
+<div class="flex items-center justify-between bg-white/70 border border-[#dae2fd]/70 rounded-xl px-3 py-1.5 backdrop-blur-sm shadow-xs">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[#00687a] text-[16px]">calendar_today</span>
+<span class="text-xs font-semibold text-[#3d494c]">Oggi, 24 Maggio</span>
+</div>
+<span class="text-[11px] font-bold text-[#00687a] px-2.5 py-0.5 rounded-full bg-[#e2f7fc] border border-[#acedff]">
+            Obiettivo 2.0L
+          </span>
+</div>
+</section>
+<!-- END: Header -->
+<!-- BEGIN: Card 1 - Split Hero Dashboard Card -->
+<section class="border border-[#dae2fd]/90 rounded-2xl p-4 bg-white shadow-sm relative overflow-hidden" data-purpose="split-metric-card">
+<!-- Subtle cyan ambient glow in top-right -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-[#06b6d4]/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="grid grid-cols-12 gap-3 items-center">
+<!-- Left Column: Circular gauge with centered image & ratio -->
+<div class="col-span-5 flex flex-col items-center justify-center">
+<div class="relative w-28 h-28 flex items-center justify-center">
+<svg class="w-28 h-28 transform -rotate-90" viewbox="0 0 100 100">
+<!-- Track Ring -->
+<circle cx="50" cy="50" fill="none" r="41" stroke="#ebf4f8" stroke-width="8"></circle>
+<!-- Animated Active Progress Ring (circumference = 2 * PI * 41 ≈ 257.61) -->
+<circle class="transition-all duration-500 ease-out" cx="50" cy="50" fill="none" id="circular-progress-bar" r="41" stroke="#06b6d4" stroke-dasharray="257.6" stroke-dashoffset="96.6" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Centered Water Icon Graphic -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<img alt="Water Icon" class="w-9 h-9 object-contain mx-auto drop-shadow-sm transition-transform duration-300" id="gauge-water-icon" src="https://lh3.googleusercontent.com/aida/AEtjO1U5IuNzTdXUGMQ3D3Si3-PdpMmNlNSfj8khrtCMD93zUfMxKKF5Lkg3ZLMH2QsQpoiV3p9hQf1728O9iahE839DfX504h2tW7-G88qTFaYOnDGN4GjlvgyzS7Kie-3rVZNbPhMxXcz4Kv6Oq48Sy3J10R1D2mCbk2_UZeAToUOqoJ-SOegZtdKQyJH-m8J4aR37lS4_ux0EApuQ83w-_cxREL6yc4rxGfM7zw8g-ewWOIartXrH7z4bEf8"/>
+<span class="text-xs font-bold text-[#131b2e] font-heading mt-0.5 leading-none transition-all duration-300" id="gauge-ratio-text">5 / 8</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Clean vertical stack -->
+<div class="col-span-7 pl-1 flex flex-col justify-center space-y-1.5">
+<div>
+<span class="text-[10px] font-bold tracking-wider text-[#00687a] uppercase font-heading block">ASSUNZIONE ATTUALE</span>
+<span class="text-lg font-bold text-[#131b2e] tracking-tight font-heading block mt-0.5 transition-all" id="metric-ml-text">1.250 / 2.000 ml</span>
+</div>
+<!-- Big Ratio & Badge Row -->
+<div class="flex items-center justify-between pt-0.5">
+<div class="flex items-baseline space-x-1">
+<span class="text-2xl font-extrabold tracking-tight text-[#131b2e] font-heading leading-none transition-all" id="metric-main-count">5</span>
+<span class="text-base font-bold text-[#00687a] font-heading leading-none">/ 8</span>
+</div>
+<span class="text-[10px] font-bold text-[#00687a] bg-[#e2f7fc] border border-[#acedff] px-2 py-0.5 rounded-md transition-all" id="metric-pct-badge">62.5%</span>
+</div>
+<!-- Micro Progress Bar Indicator -->
+<div class="pt-1">
+<div class="w-full bg-[#ebf4f8] h-2 rounded-full overflow-hidden p-0.5 border border-[#dae2fd]/50">
+<div class="bg-gradient-to-r from-[#06b6d4] to-[#00687a] h-full rounded-full transition-all duration-500 ease-out" id="horizontal-progress-bar" style="width: 62.5%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Card 1 -->
+<!-- BEGIN: Card 2 - Status & Glass Tracker Card -->
+<section class="border border-[#acedff] rounded-2xl p-3.5 bg-gradient-to-br from-[#eef9fc] via-[#f4fbfe] to-white shadow-sm space-y-2.5" data-purpose="status-reminder-box">
+<!-- Header Info Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#00687a] text-white flex items-center justify-center flex-shrink-0 shadow-sm shadow-[#06b6d4]/25 ring-2 ring-[#06b6d4]/20 transition-all duration-300" id="status-icon-box">
+<svg class="w-4.5 h-4.5 fill-current" height="18" viewbox="0 0 24 24" width="18">
+<defs>
+<lineargradient id="badgeWaterGradVariant" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#acedff"></stop>
+<stop offset="100%" stop-color="#ffffff"></stop>
+</lineargradient>
+</defs>
+<path d="M5.5 3h13l-1.8 16.2c-.1 1-1 1.8-2 1.8H9.3c-1 0-1.9-.8-2-1.8L5.5 3z" fill="none" stroke="url(#badgeWaterGradVariant)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M7.2 8.5h9.6l-1.1 10.3c-.1.7-.7 1.2-1.4 1.2H9.7c-.7 0-1.3-.5-1.4-1.2L7.2 8.5z" fill="url(#badgeWaterGradVariant)" fill-opacity="0.95"></path>
+<circle cx="12" cy="13.5" fill="#00687a" opacity="0.6" r="1.2"></circle>
+</svg>
+</div>
+<div>
+<h2 class="text-sm font-bold text-[#131b2e] leading-tight font-heading transition-all" id="cups-missing-title">Ti mancano 3 bicchieri</h2>
+<p class="text-[11px] text-[#3d494c] font-medium pt-0.5" id="cups-subtitle-text">Progresso idratazione odierna</p>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-[#00687a] bg-[#e2f7fc] border border-[#acedff] px-2 py-0.5 rounded-full whitespace-nowrap transition-all" id="cups-badge-completed">
+            5 / 8 completati
+</span>
+</div>
+<!-- 8-Cup Segmented Row (1° to 8°) in compact 8-col grid -->
+<div class="grid grid-cols-8 gap-1 pt-0.5" id="cups-grid">
+<!-- Populated dynamically via JS -->
+</div>
+<p class="text-xs text-[#3d494c] leading-relaxed pt-0.5 font-normal transition-all" id="reminder-caption-text">
+  Bevi il prossimo bicchiere entro le 16:30 per mantenere l'idratazione ottimale.
+</p>
+</section>
+<!-- BEGIN: Mascotte Section -->
+<section class="flex flex-col items-center justify-center py-1 relative" data-purpose="mascot-widget">
+<!-- Comic Speech Bubble with Tail pointing downwards to Idro -->
+<div class="relative max-w-[315px] w-full px-2 mb-3 z-10">
+<div class="bg-white border-2 border-[#06b6d4]/30 shadow-md shadow-[#06b6d4]/10 rounded-2xl px-3.5 py-2 text-center relative transition-all duration-300">
+<div class="flex items-center justify-center space-x-1.5 mb-0.5">
+<span class="text-[11px] font-bold text-[#00687a] font-heading tracking-wide uppercase">Idro</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-semibold bg-[#e2f7fc] text-[#00687a] border border-[#acedff]">Mascotte</span>
+</div>
+<p class="text-xs font-semibold text-[#131b2e] leading-snug tracking-tight font-heading min-h-[30px] flex items-center justify-center transition-all duration-300" id="idro-speech-bubble">
+        Ottimo ritmo! Sei già a più di metà strada! 🌊
+      </p>
+<!-- Bubble pointer / tail pointing downward toward Idro -->
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r-2 border-b-2 border-[#06b6d4]/30 rotate-45 rounded-br-xs"></div>
+</div>
+</div>
+<!-- Large Kawaii Water Drop Mascot "Idro" with gentle float animation -->
+<div class="relative w-28 h-28 flex items-center justify-center filter drop-shadow-md mascot-float">
+<svg class="w-full h-full transition-transform duration-300 transform hover:scale-105" fill="none" id="idro-mascot-svg" viewbox="0 0 120 120">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="idroBodyGrad" x1="20" x2="100" y1="10" y2="115">
+<stop offset="0%" stop-color="#38bdf8"></stop>
+<stop offset="50%" stop-color="#06b6d4"></stop>
+<stop offset="100%" stop-color="#00687a"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="idroHighlight" x1="30" x2="50" y1="25" y2="75">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"></stop>
+<stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="idroSadGrad" x1="20" x2="100" y1="10" y2="115">
+<stop offset="0%" stop-color="#93c5fd"></stop>
+<stop offset="50%" stop-color="#67e8f9"></stop>
+<stop offset="100%" stop-color="#0284c7"></stop>
+</lineargradient>
+</defs>
+<!-- Main Water Drop Body Silhouette -->
+<path d="M60 12 C60 12 22 56 22 84 C22 104 39 116 60 116 C81 116 98 104 98 84 C98 56 60 12 60 12 Z" fill="url(#idroBodyGrad)" id="idro-body-path" stroke="#ffffff" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Glossy Reflection Highlight -->
+<path d="M60 20 C60 20 32 58 31 82 C30.6 92 34 98 34 98 C34 98 29 88 32 75 C35 60 55 27 60 20 Z" fill="url(#idroHighlight)"></path>
+<circle cx="40" cy="42" fill="#ffffff" opacity="0.85" r="2.5"></circle>
+<!-- Little hands/arms on sides -->
+<g id="idro-arms">
+<ellipse cx="23" cy="85" fill="#06b6d4" rx="4" ry="7" stroke="#ffffff" stroke-width="1.5" transform="rotate(-20 23 85)"></ellipse>
+<ellipse cx="97" cy="85" fill="#06b6d4" rx="4" ry="7" stroke="#ffffff" stroke-width="1.5" transform="rotate(20 97 85)"></ellipse>
+</g>
+<!-- Rosy Cheeks -->
+<g id="idro-cheeks">
+<ellipse cx="39" cy="85" fill="#f43f5e" opacity="0.35" rx="5.5" ry="3"></ellipse>
+<ellipse cx="81" cy="85" fill="#f43f5e" opacity="0.35" rx="5.5" ry="3"></ellipse>
+</g>
+<!-- Reactive Facial Features -->
+<g id="idro-face">
+<!-- Default State 2 -->
+<ellipse cx="46" cy="75" fill="#001f26" rx="4.5" ry="6"></ellipse>
+<circle cx="44.5" cy="72.5" fill="#ffffff" r="2"></circle>
+<circle cx="47.5" cy="77" fill="#ffffff" r="1"></circle>
+<ellipse cx="74" cy="75" fill="#001f26" rx="4.5" ry="6"></ellipse>
+<circle cx="72.5" cy="72.5" fill="#ffffff" r="2"></circle>
+<circle cx="75.5" cy="77" fill="#ffffff" r="1"></circle>
+<path d="M54 81 Q60 88 66 81" fill="#001f26" stroke="#001f26" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M56 82.5 Q60 86 64 82.5" fill="#f87171"></path>
+</g>
+<!-- State Accessories (Sparkles/Sweat) -->
+<g id="idro-accessories">
+<path d="M88 34 L90 28 L92 34 L98 36 L92 38 L90 44 L88 38 L82 36 Z" fill="#fef08a" opacity="0.9"></path>
+<circle cx="96" cy="46" fill="#acedff" r="1.5"></circle>
+</g>
+</svg>
+</div>
+<!-- Reactive State Switcher Pills (Synced with intake level) -->
+<div class="flex items-center justify-center gap-1.5 mt-2 bg-white/80 border border-[#dae2fd] p-1 rounded-xl shadow-xs">
+<span class="text-[10px] font-semibold text-[#6d797d] px-1 font-heading">Livello:</span>
+<button class="px-2.5 py-0.5 rounded-lg text-[10px] font-bold text-[#6d797d] transition-all" id="pill-tier-1" type="button">
+      0-2 bicchieri
+    </button>
+<button class="px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-[#00687a] text-white shadow-xs transition-all" id="pill-tier-2" type="button">
+      3-5 bicchieri
+    </button>
+<button class="px-2.5 py-0.5 rounded-lg text-[10px] font-bold text-[#6d797d] transition-all" id="pill-tier-3" type="button">
+      6-7 bicchieri
+    </button>
+<button class="px-2 py-0.5 rounded-lg text-[10px] font-bold text-[#6d797d] transition-all" id="pill-tier-4" type="button">
+      8 🎉
+    </button>
+</div>
+</section>
+<!-- END: Mascotte Section -->
+</main>
+</div>
+<!-- BEGIN: Bottom Action Area -->
+<footer class="p-4 bg-white/95 border-t border-[#dae2fd]/80 backdrop-blur-md shadow-lg space-y-2.5" data-purpose="floating-action-dock">
+<!-- Primary Big Action Button -->
+<button class="w-full bg-[#00687a] hover:bg-[#005766] active:scale-[0.98] text-white py-3.5 px-4 rounded-xl font-semibold text-sm flex items-center justify-center space-x-2 shadow-md shadow-[#00687a]/25 transition-all font-heading" id="btn-add">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span id="btn-add-label">+ Aggiungi bicchiere (250 ml)</span>
+</button>
+<!-- Secondary Actions Integrated Row -->
+<div class="grid grid-cols-2 gap-2">
+<!-- Remove Button -->
+<button class="w-full bg-[#faf8ff] hover:bg-[#f2f3ff] border border-[#dae2fd] py-2 px-3 rounded-xl text-xs font-semibold text-[#131b2e] flex items-center justify-center space-x-1.5 transition-all shadow-xs active:scale-[0.98] font-heading" id="btn-remove">
+<span class="material-symbols-outlined text-[15px] text-[#6d797d]">remove</span>
+<span>- Rimuovi uno</span>
+</button>
+<!-- Reset Button -->
+<button class="w-full bg-[#faf8ff] hover:bg-[#f2f3ff] border border-[#dae2fd] py-2 px-3 rounded-xl text-xs font-semibold text-[#131b2e] flex items-center justify-center space-x-1.5 transition-all shadow-xs active:scale-[0.98] font-heading" id="btn-reset">
+<span class="material-symbols-outlined text-[15px] text-[#6d797d]">restart_alt</span>
+<span>Azzera giornata</span>
+</button>
+</div>
+<!-- Metadata Footer Caption -->
+<div class="pt-0.5 text-center" data-purpose="meta-footer">
+<p class="text-[10px] text-[#6d797d] tracking-tight">
+        IdroTrack v1.0 • Interattivo &amp; Sincronizzato
+      </p>
+</div>
+</footer>
+<!-- END: Bottom Action Area -->
+</div>
+<!-- JAVASCRIPT APPLICATION LOGIC -->
+<script>
+  // 1. Core State
+  const TOTAL_CUPS = 8;
+  const ML_PER_CUP = 250;
+  const TOTAL_ML = TOTAL_CUPS * ML_PER_CUP; // 2000 ml
+  const CIRCLE_CIRCUMFERENCE = 257.6; // 2 * PI * 41
+
+  let currentCups = 5; // Default initial state requested
+  let lastAddedCupIndex = -1; // For pop animation on add
+
+  // DOM Elements
+  const elCircularBar = document.getElementById('circular-progress-bar');
+  const elGaugeRatio = document.getElementById('gauge-ratio-text');
+  const elMetricMl = document.getElementById('metric-ml-text');
+  const elMetricCount = document.getElementById('metric-main-count');
+  const elMetricPct = document.getElementById('metric-pct-badge');
+  const elHorizontalBar = document.getElementById('horizontal-progress-bar');
+
+  const elMissingTitle = document.getElementById('cups-missing-title');
+  const elSubtitleText = document.getElementById('cups-subtitle-text');
+  const elBadgeCompleted = document.getElementById('cups-badge-completed');
+  const elCupsGrid = document.getElementById('cups-grid');
+  const elReminderCaption = document.getElementById('reminder-caption-text');
+
+  const elSpeechBubble = document.getElementById('idro-speech-bubble');
+  const elIdroFace = document.getElementById('idro-face');
+  const elIdroCheeks = document.getElementById('idro-cheeks');
+  const elIdroAcc = document.getElementById('idro-accessories');
+  const elIdroBody = document.getElementById('idro-body-path');
+  const elBtnAdd = document.getElementById('btn-add');
+  const elBtnAddLabel = document.getElementById('btn-add-label');
+  const elBtnRemove = document.getElementById('btn-remove');
+  const elBtnReset = document.getElementById('btn-reset');
+
+  const pill1 = document.getElementById('pill-tier-1');
+  const pill2 = document.getElementById('pill-tier-2');
+  const pill3 = document.getElementById('pill-tier-3');
+  const pill4 = document.getElementById('pill-tier-4');
+
+  // Format Milliliters with Italian thousands separator: 1250 -> '1.250'
+  function formatMl(ml) {
+    return ml.toLocaleString('it-IT');
+  }
+
+  // Render the 8 cups row
+  function renderCupsRow() {
+    elCupsGrid.innerHTML = '';
+    for (let i = 1; i <= TOTAL_CUPS; i++) {
+      const isFilled = i <= currentCups;
+      const isJustAdded = i === lastAddedCupIndex;
+      const cupDiv = document.createElement('div');
+      cupDiv.className = `flex flex-col items-center justify-center py-2 px-0.5 rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
+        isFilled
+          ? 'bg-white border border-[#06b6d4]/40 shadow-xs ring-1 ring-[#06b6d4]/20'
+          : 'bg-white/60 border border-dashed border-[#bcc9cd] opacity-75'
+      } ${isJustAdded ? 'pop-anim' : ''}`;
+
+      // Allow clicking a cup directly to jump to that quantity
+      cupDiv.setAttribute('title', `${i}° bicchiere (${i * 250} ml)`);
+      cupDiv.onclick = () => {
+        setCupCount(i);
+      };
+
+      if (isFilled) {
+        cupDiv.innerHTML = `
+          <svg class="w-4.5 h-5.5 drop-shadow-xs" viewBox="0 0 20 24">
+            <defs>
+              <linearGradient id="cupWaterG_${i}" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#38bdf8"></stop>
+                <stop offset="100%" stop-color="#00687a"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M4 2h12l-1.5 17c-.1 1.1-1 2-2.1 2H7.6c-1.1 0-2-.9-2.1-2L4 2z" fill="#ebf4f8" stroke="#06b6d4" stroke-width="1.5"></path>
+            <path d="M5.1 8h9.8l-1.1 11.2c-.1.6-.6 1-1.2 1H7.4c-.6 0-1.1-.4-1.2-1L5.1 8z" fill="url(#cupWaterG_${i})"></path>
+            <ellipse cx="10" cy="8.2" fill="#acedff" rx="4.8" ry="1.2"></ellipse>
+            <circle cx="${i % 2 === 0 ? '8.5' : '11.5'}" cy="${12 + (i % 3)}" fill="white" opacity="0.85" r="0.9"></circle>
+          </svg>
+          <span class="text-[10px] font-bold text-[#00687a] mt-1">${i}°</span>
+        `;
+      } else {
+        cupDiv.innerHTML = `
+          <svg class="w-4.5 h-5.5" viewBox="0 0 20 24">
+            <path d="M4 2h12l-1.5 17c-.1 1.1-1 2-2.1 2H7.6c-1.1 0-2-.9-2.1-2L4 2z" fill="none" stroke="#6d797d" stroke-dasharray="2 2" stroke-width="1.4"></path>
+            <path d="M10 9c-1 1.5-2 3-2 4.2 0 1.1.9 2 2 2s2-.9 2-2c0-1.2-1-2.7-2-4.2z" fill="none" stroke="#bcc9cd" stroke-width="1.2"></path>
+          </svg>
+          <span class="text-[10px] font-medium text-[#6d797d] mt-1">${i}°</span>
+        `;
+      }
+
+      elCupsGrid.appendChild(cupDiv);
+    }
+  }
+
+  // Update Mascot Artwork, Speech Bubble, and Tier Pills
+  function updateMascot() {
+    const activePillClass = 'px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-[#00687a] text-white shadow-xs transition-all';
+    const inactivePillClass = 'px-2.5 py-0.5 rounded-lg text-[10px] font-bold text-[#6d797d] hover:bg-[#ebf4f8] transition-all';
+
+    [pill1, pill2, pill3, pill4].forEach(p => {
+      p.className = inactivePillClass;
+    });
+
+    if (currentCups <= 2) {
+      // STATE 1: 0-2 cups (Sad / thirsty / tired)
+      pill1.className = activePillClass;
+      elSpeechBubble.innerText = "Ho sete… iniziamo a bere un po' d'acqua! 💧";
+      elIdroBody.setAttribute('fill', 'url(#idroSadGrad)');
+      elIdroCheeks.innerHTML = `
+        <ellipse cx="39" cy="87" rx="4" ry="2.5" fill="#94a3b8" opacity="0.4" />
+        <ellipse cx="81" cy="87" rx="4" ry="2.5" fill="#94a3b8" opacity="0.4" />
+      `;
+      elIdroFace.innerHTML = `
+        <!-- Droopy sleepy eyes -->
+        <path d="M42 75 Q47 70 51 76" stroke="#001f26" stroke-width="2.5" stroke-linecap="round" fill="none" />
+        <circle cx="46" cy="77" r="2" fill="#001f26" />
+        <path d="M69 76 Q73 70 78 75" stroke="#001f26" stroke-width="2.5" stroke-linecap="round" fill="none" />
+        <circle cx="74" cy="77" r="2" fill="#001f26" />
+        <!-- Small thirsty wobbly mouth -->
+        <path d="M55 86 Q60 82 65 86" stroke="#001f26" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      `;
+      elIdroAcc.innerHTML = `
+        <!-- Thirsty sweat drop on side -->
+        <path d="M82 52 C82 52 76 60 76 64 C76 67 78.5 69 82 69 C85.5 69 88 67 88 64 C88 60 82 52 82 52 Z" fill="#acedff" stroke="#0284c7" stroke-width="1" />
+        <circle cx="81" cy="63" r="1" fill="#ffffff" />
+      `;
+    } else if (currentCups <= 5) {
+      // STATE 2: 3-5 cups (Energetic / on track)
+      pill2.className = activePillClass;
+      elSpeechBubble.innerText = 'Ottimo ritmo! Sei già a più di metà strada! 🌊';
+      elIdroBody.setAttribute('fill', 'url(#idroBodyGrad)');
+      elIdroCheeks.innerHTML = `
+        <ellipse cx="39" cy="85" rx="5.5" ry="3" fill="#f43f5e" opacity="0.35" />
+        <ellipse cx="81" cy="85" rx="5.5" ry="3" fill="#f43f5e" opacity="0.35" />
+      `;
+      elIdroFace.innerHTML = `
+        <!-- Open bright eyes -->
+        <ellipse cx="46" cy="75" rx="4.5" ry="6" fill="#001f26" />
+        <circle cx="44.5" cy="72.5" r="2" fill="#ffffff" />
+        <circle cx="47.5" cy="77" r="1" fill="#ffffff" />
+        <ellipse cx="74" cy="75" rx="4.5" ry="6" fill="#001f26" />
+        <circle cx="72.5" cy="72.5" r="2" fill="#ffffff" />
+        <circle cx="75.5" cy="77" r="1" fill="#ffffff" />
+        <!-- Joyful open smile -->
+        <path d="M54 81 Q60 88 66 81" stroke="#001f26" stroke-width="2.5" stroke-linecap="round" fill="#001f26" />
+        <path d="M56 82.5 Q60 86 64 82.5" fill="#f87171" />
+      `;
+      elIdroAcc.innerHTML = `
+        <path d="M88 34 L90 28 L92 34 L98 36 L92 38 L90 44 L88 38 L82 36 Z" fill="#fef08a" opacity="0.9" />
+        <circle cx="96" cy="46" r="1.5" fill="#acedff" />
+      `;
+    } else if (currentCups <= 7) {
+      // STATE 3: 6-7 cups (Excited / almost done)
+      pill3.className = activePillClass;
+      elSpeechBubble.innerText = 'Grande! Sei quasi arrivato all’obiettivo! ⭐';
+      elIdroBody.setAttribute('fill', 'url(#idroBodyGrad)');
+      elIdroCheeks.innerHTML = `
+        <ellipse cx="38" cy="84" rx="6" ry="3.5" fill="#fb7185" opacity="0.5" />
+        <ellipse cx="82" cy="84" rx="6" ry="3.5" fill="#fb7185" opacity="0.5" />
+      `;
+      elIdroFace.innerHTML = `
+        <!-- Smiling eyes curve -->
+        <path d="M42 76 Q46 69 51 76" stroke="#001f26" stroke-width="2.8" stroke-linecap="round" fill="none" />
+        <path d="M69 76 Q74 69 78 76" stroke="#001f26" stroke-width="2.8" stroke-linecap="round" fill="none" />
+        <!-- Big cheering smile -->
+        <path d="M53 80 Q60 90 67 80 Z" fill="#001f26" />
+        <path d="M55 83 Q60 89 65 83 Z" fill="#f43f5e" />
+      `;
+      elIdroAcc.innerHTML = `
+        <path d="M88 30 L90 22 L93 30 L101 32 L93 35 L90 43 L88 35 L80 32 Z" fill="#facc15" />
+        <circle cx="95" cy="48" r="2" fill="#38bdf8" />
+        <path d="M26 38 L28 32 L30 38 L36 40 L30 42 L28 48 L26 42 L20 40 Z" fill="#fef08a" opacity="0.8" />
+      `;
+    } else {
+      // STATE 4: 8 cups (Completed / celebration)
+      pill4.className = activePillClass;
+      elSpeechBubble.innerText = 'Fantastico! Obiettivo raggiunto! 🏆✨';
+      elIdroBody.setAttribute('fill', 'url(#idroBodyGrad)');
+      elIdroCheeks.innerHTML = `
+        <ellipse cx="37" cy="84" rx="6.5" ry="4" fill="#fb7185" opacity="0.6" />
+        <ellipse cx="83" cy="84" rx="6.5" ry="4" fill="#fb7185" opacity="0.6" />
+      `;
+      elIdroFace.innerHTML = `
+        <!-- Star / happy arc eyes -->
+        <path d="M40 75 Q46 66 52 75" stroke="#001f26" stroke-width="3" stroke-linecap="round" fill="none" />
+        <path d="M68 75 Q74 66 80 75" stroke="#001f26" stroke-width="3" stroke-linecap="round" fill="none" />
+        <!-- Huge beaming celebration mouth -->
+        <path d="M51 79 Q60 93 69 79 Z" fill="#001f26" />
+        <path d="M54 84 Q60 92 66 84 Z" fill="#f43f5e" />
+      `;
+      elIdroAcc.innerHTML = `
+        <!-- Party stars & sparkles -->
+        <path d="M88 28 L90 20 L93 28 L101 30 L93 33 L90 41 L88 33 L80 30 Z" fill="#facc15" />
+        <path d="M24 38 L26 30 L28 38 L35 40 L28 43 L26 50 L24 43 L17 40 Z" fill="#38bdf8" />
+        <circle cx="96" cy="46" r="2.2" fill="#f472b6" />
+        <circle cx="23" cy="62" r="1.8" fill="#facc15" />
+        <circle cx="60" cy="8" r="2.5" fill="#fef08a" />
+      `;
+    }
+  }
+
+  // Master UI render function
+  function updateUI() {
+    const currentMl = currentCups * ML_PER_CUP;
+    const pct = (currentCups / TOTAL_CUPS) * 100;
+
+    // 1. Split Hero Card
+    elMetricMl.innerText = `${formatMl(currentMl)} / ${formatMl(TOTAL_ML)} ml`;
+    elMetricCount.innerText = currentCups;
+    elGaugeRatio.innerText = `${currentCups} / ${TOTAL_CUPS}`;
+    elMetricPct.innerText = `${pct.toFixed(pct % 1 === 0 ? 0 : 1)}%`;
+
+    // Horizontal progress bar
+    elHorizontalBar.style.width = `${pct}%`;
+
+    // Circular progress stroke-dashoffset
+    // 0% = dashoffset 257.6, 100% = dashoffset 0
+    const offset = CIRCLE_CIRCUMFERENCE - (pct / 100) * CIRCLE_CIRCUMFERENCE;
+    elCircularBar.style.strokeDashoffset = offset;
+
+    // 2. Glass Tracker Card
+    const remainingCups = TOTAL_CUPS - currentCups;
+    if (currentCups === TOTAL_CUPS) {
+      elMissingTitle.innerHTML = 'Obiettivo completato! 🎉';
+      elSubtitleText.innerText = 'Hai raggiunto i 2.000 ml odierni';
+      elReminderCaption.innerText = 'Hai raggiunto il tuo fabbisogno idrico ottimale di 2.0L per oggi! Bravissimo!';
+    } else if (remainingCups === 1) {
+      elMissingTitle.innerText = 'Ti manca 1 bicchiere';
+      elSubtitleText.innerText = 'Progresso idratazione odierna';
+      elReminderCaption.innerText = "Bevi il prossimo bicchiere entro le 16:30 per mantenere l'idratazione ottimale.";
+    } else {
+      elMissingTitle.innerText = `Ti mancano ${remainingCups} bicchieri`;
+      elSubtitleText.innerText = 'Progresso idratazione odierna';
+      elReminderCaption.innerText = "Bevi il prossimo bicchiere entro le 16:30 per mantenere l'idratazione ottimale.";
+    }
+
+    elBadgeCompleted.innerText = `${currentCups} / ${TOTAL_CUPS} completati`;
+
+    // Render 8 cups
+    renderCupsRow();
+
+    // 3. Mascotte state
+    updateMascot();
+
+    // 4. Button States
+    if (currentCups >= TOTAL_CUPS) {
+      elBtnAdd.classList.add('opacity-80');
+      elBtnAddLabel.innerText = '🎉 Obiettivo raggiunto (2.0L)';
+    } else {
+      elBtnAdd.classList.remove('opacity-80');
+      elBtnAddLabel.innerText = '+ Aggiungi bicchiere (250 ml)';
+    }
+
+    if (currentCups <= 0) {
+      elBtnRemove.classList.add('opacity-50', 'pointer-events-none');
+    } else {
+      elBtnRemove.classList.remove('opacity-50', 'pointer-events-none');
+    }
+  }
+
+  function setCupCount(val) {
+    const clamped = Math.max(0, Math.min(TOTAL_CUPS, val));
+    if (clamped > currentCups) {
+      lastAddedCupIndex = clamped;
+    } else {
+      lastAddedCupIndex = -1;
+    }
+    currentCups = clamped;
+    updateUI();
+  }
+
+  // Event Listeners for Bottom Action Dock
+  elBtnAdd.addEventListener('click', () => {
+    if (currentCups < TOTAL_CUPS) {
+      lastAddedCupIndex = currentCups + 1;
+      currentCups++;
+      updateUI();
+    }
+  });
+
+  elBtnRemove.addEventListener('click', () => {
+    if (currentCups > 0) {
+      lastAddedCupIndex = -1;
+      currentCups--;
+      updateUI();
+    }
+  });
+
+  elBtnReset.addEventListener('click', () => {
+    lastAddedCupIndex = -1;
+    currentCups = 0;
+    updateUI();
+  });
+
+  // Level selector quick jumps
+  pill1.addEventListener('click', () => setCupCount(1));
+  pill2.addEventListener('click', () => setCupCount(4));
+  pill3.addEventListener('click', () => setCupCount(6));
+  pill4.addEventListener('click', () => setCupCount(8));
+
+  // Initial load
+  updateUI();
+</script>
+</body></html>

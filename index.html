@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>IdroTrack - App Monitoraggio Idratazione</title>
+
+  <!-- Google Fonts: Outfit (titoli e numeri) e Inter (testi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Icone Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Foglio di stile esterno -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Contenitore Mobile Framed -->
+  <div class="app-frame">
+
+    <div class="app-content">
+
+      <!-- === STATUS BAR === -->
+      <header class="status-bar" aria-label="Stato dispositivo">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <!-- Icona Rete Mobile -->
+          <svg class="status-icon" width="16" height="12" viewBox="0 0 17 12">
+            <rect x="0" y="8" width="2.5" height="4" rx="0.5"></rect>
+            <rect x="4" y="5.5" width="2.5" height="6.5" rx="0.5"></rect>
+            <rect x="8" y="3" width="2.5" height="9" rx="0.5"></rect>
+            <rect x="12" y="0" width="2.5" height="12" rx="0.5"></rect>
+          </svg>
+          <!-- Icona Wi-Fi -->
+          <svg class="status-icon" width="15" height="12" viewBox="0 0 16 12">
+            <path d="M8 2.5C10.6 2.5 13 3.6 14.7 5.3L16 3.9C13.9 1.8 11.1 0.5 8 0.5C4.9 0.5 2.1 1.8 0 3.9L1.3 5.3C3 3.6 5.4 2.5 8 2.5ZM8 6.5C9.6 6.5 11.1 7.2 12.1 8.3L13.5 6.9C12.1 5.4 10.1 4.5 8 4.5C5.9 4.5 3.9 5.4 2.5 6.9L3.9 8.3C4.9 7.2 6.4 6.5 8 6.5ZM9.5 10.5C9.5 9.67 8.83 9 8 9C7.17 9 6.5 10.5C6.5 11.33 7.17 12 8 12C8.83 12 9.5 11.33 9.5 10.5Z"></path>
+          </svg>
+          <!-- Icona Batteria -->
+          <svg class="status-icon" width="22" height="11" viewBox="0 0 24 12">
+            <rect x="0.5" y="0.5" width="20" height="11" rx="3" fill="none" stroke="currentColor"></rect>
+            <rect x="2" y="2" width="14" height="8" rx="1.5"></rect>
+            <path d="M22 4C22.6 4.4 23 5.1 23 6C23 6.9 22.6 7.6 22 8V4Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </header>
+
+      <!-- === CORPO PRINCIPALE DELL'APP === -->
+      <main class="main-body">
+
+        <!-- Sezione Intestazione e Data -->
+        <section class="header-section" aria-label="Intestazione IdroTrack">
+          <div class="header-top">
+            <div class="logo-container">
+              <div class="logo-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+              </div>
+              <h1 class="app-title">IdroTrack</h1>
+            </div>
+            <!-- Pulsante Profilo -->
+            <button id="btn-profile" class="btn-profile" aria-label="Profilo utente" type="button">
+              <span class="material-symbols-rounded">person</span>
+            </button>
+          </div>
+
+          <!-- Barra Data e Obiettivo -->
+          <div class="date-goal-bar" style="margin-top: 8px;">
+            <div class="date-indicator">
+              <span class="material-symbols-rounded">calendar_today</span>
+              <span id="date-text">Oggi, 17 Ottobre</span>
+            </div>
+            <span class="goal-badge">Obiettivo 2.0L</span>
+          </div>
+        </section>
+
+        <!-- === CARD 1: DASHBOARD METRICA (SPLIT HERO) === -->
+        <section class="metric-hero-card" aria-label="Panoramica idratazione">
+          <!-- Colonna Sinistra: Barra Circolare Gauge -->
+          <div class="gauge-wrapper">
+            <svg class="gauge-svg" viewBox="0 0 100 100">
+              <circle class="gauge-track" cx="50" cy="50" r="41"></circle>
+              <circle id="circular-progress-bar" class="gauge-progress" cx="50" cy="50" r="41"></circle>
+            </svg>
+            <div class="gauge-center-content">
+              <!-- Icona Goccia IdroTrack -->
+              <svg class="gauge-drop-icon" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="16" fill="#e0f2fe" opacity="0.6"></circle>
+                <path d="M18 8 C18 8 11 17 11 22 C11 26 14.1 28.5 18 28.5 C21.9 28.5 25 26 25 22 C25 17 18 8 18 8 Z" fill="#06b6d4"></path>
+                <path d="M18 11 C18 11 13.5 17.5 13.5 21 C13.5 22 14 23 15 23 C14 21 15 18 18 13 Z" fill="#ffffff" opacity="0.7"></path>
+              </svg>
+              <span id="gauge-ratio-text" class="gauge-ratio">0 / 8</span>
+            </div>
+          </div>
+
+          <!-- Colonna Destra: Informazioni e Progresso Orizzontale -->
+          <div class="metric-info">
+            <span class="metric-caption">ASSUNZIONE ATTUALE</span>
+            <span id="metric-ml-text" class="metric-volume">0 / 2.000 ml</span>
+
+            <div class="metric-count-row">
+              <div class="count-numbers">
+                <span id="metric-main-count" class="current-count">0</span>
+                <span class="total-count">/ 8</span>
+              </div>
+              <span id="metric-pct-badge" class="pct-badge">0%</span>
+            </div>
+
+            <!-- Mini barra di avanzamento lineare -->
+            <div class="progress-bar-track">
+              <div id="horizontal-progress-bar" class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- === CARD 2: STATUS E TRACKER 8 BICCHIERI === -->
+        <section class="cups-tracker-card" aria-label="Stato bicchieri">
+          <div class="cups-card-header">
+            <div class="cups-title-group">
+              <div class="cups-status-icon-box">
+                <!-- Icona Bicchiere -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.5 3h13l-1.8 16.2c-.1 1-1 1.8-2 1.8H9.3c-1 0-1.9-.8-2-1.8L5.5 3z"></path>
+                  <path d="M7 9h10" stroke-width="1.5"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 id="cups-missing-title" class="cups-missing-title">Ti mancano 8 bicchieri</h2>
+                <p id="cups-subtitle-text" class="cups-subtitle">Progresso idratazione odierna</p>
+              </div>
+            </div>
+            <span id="cups-badge-completed" class="cups-badge-completed">0 / 8 completati</span>
+          </div>
+
+          <!-- Griglia degli 8 bicchieri generata dinamicamente -->
+          <div id="cups-grid" class="cups-grid"></div>
+
+          <!-- Promemoria orario -->
+          <p id="reminder-caption-text" class="reminder-caption">
+            Bevi il prossimo bicchiere per mantenere l'idratazione ottimale.
+          </p>
+        </section>
+
+        <!-- === MASCOTTE IDRO INTERATTIVA === -->
+        <section class="mascot-section" aria-label="Mascotte Idro">
+          <!-- Fumetto dinamico -->
+          <div class="speech-bubble-container">
+            <div class="speech-bubble">
+              <div class="bubble-header">
+                <span class="bubble-name">Idro</span>
+                <span class="bubble-tag">Mascotte</span>
+              </div>
+              <p id="idro-speech-bubble" class="bubble-text">
+                Ho sete... iniziamo a bere un po' d'acqua!
+              </p>
+              <div class="bubble-tail"></div>
+            </div>
+          </div>
+
+          <!-- Grafica Vettoriale SVG Mascotte "Idro" -->
+          <div class="mascot-frame">
+            <svg id="idro-mascot-svg" class="mascot-svg" viewBox="0 0 120 120" fill="none">
+              <defs>
+                <!-- Gradiente corpo idratato -->
+                <linearGradient id="idroBodyGrad" x1="20" y1="10" x2="100" y2="115" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38bdf8"></stop>
+                  <stop offset="50%" stop-color="#06b6d4"></stop>
+                  <stop offset="100%" stop-color="#00687a"></stop>
+                </linearGradient>
+                <!-- Gradiente riflesso di luce -->
+                <linearGradient id="idroHighlight" x1="30" y1="25" x2="50" y2="75" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"></stop>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+                </linearGradient>
+                <!-- Gradiente corpo assetato -->
+                <linearGradient id="idroSadGrad" x1="20" y1="10" x2="100" y2="115" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#93c5fd"></stop>
+                  <stop offset="50%" stop-color="#67e8f9"></stop>
+                  <stop offset="100%" stop-color="#0284c7"></stop>
+                </linearGradient>
+              </defs>
+
+              <!-- Sagoma goccia principale -->
+              <path id="idro-body-path" d="M60 12 C60 12 22 56 22 84 C22 104 39 116 60 116 C81 116 98 104 98 84 C98 56 60 12 60 12 Z" fill="url(#idroSadGrad)" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"></path>
+              
+              <!-- Riflesso lucido -->
+              <path d="M60 20 C60 20 32 58 31 82 C30.6 92 34 98 34 98 C34 98 29 88 32 75 C35 60 55 27 60 20 Z" fill="url(#idroHighlight)"></path>
+              <circle cx="40" cy="42" r="2.5" fill="#ffffff" opacity="0.85"></circle>
+
+              <!-- Braccine ai lati -->
+              <g id="idro-arms">
+                <ellipse cx="23" cy="85" rx="4" ry="7" fill="#06b6d4" stroke="#ffffff" stroke-width="1.5" transform="rotate(-20 23 85)"></ellipse>
+                <ellipse cx="97" cy="85" rx="4" ry="7" fill="#06b6d4" stroke="#ffffff" stroke-width="1.5" transform="rotate(20 97 85)"></ellipse>
+              </g>
+
+              <!-- Guance reattive -->
+              <g id="idro-cheeks"></g>
+
+              <!-- Volto ed espressioni reattive -->
+              <g id="idro-face"></g>
+
+              <!-- Accessori ed effetti (sudore, stelline, coriandoli) -->
+              <g id="idro-accessories"></g>
+            </svg>
+          </div>
+
+          <!-- Indicatore di livello (sincronizzato automaticamente) -->
+          <div class="tier-pills-bar">
+            <span class="tier-pills-label">Livello:</span>
+            <button id="pill-tier-1" class="tier-pill" type="button">0-2 bicchieri</button>
+            <button id="pill-tier-2" class="tier-pill" type="button">3-5 bicchieri</button>
+            <button id="pill-tier-3" class="tier-pill" type="button">6-7 bicchieri</button>
+            <button id="pill-tier-4" class="tier-pill" type="button">8 🎉</button>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- === DOCK AZIONI INFERIORE (THUMB-ZONE) === -->
+    <footer class="action-dock">
+      <!-- Pulsante Primario: Aggiungi bicchiere -->
+      <button id="btn-add" class="btn-primary-add" type="button">
+        <span class="material-symbols-rounded">add</span>
+        <span id="btn-add-label">+ Aggiungi bicchiere (250 ml)</span>
+      </button>
+
+      <!-- Pulsanti Secondari: Rimuovi e Azzera -->
+      <div class="secondary-actions-grid">
+        <button id="btn-remove" class="btn-secondary" type="button">
+          <span class="material-symbols-rounded">remove</span>
+          <span>− Rimuovi uno</span>
+        </button>
+
+        <button id="btn-reset" class="btn-secondary" type="button">
+          <span class="material-symbols-rounded">restart_alt</span>
+          <span>Azzera giornata</span>
+        </button>
+      </div>
+
+      <!-- Footer Didascalia -->
+      <div class="footer-meta">
+        <p>IdroTrack v1.0 • Interattivo &amp; Sincronizzato</p>
+      </div>
+    </footer>
+
+    <!-- === MODALE POPUP CONFERMA AZZERAMENTO === -->
+    <div id="confirmation-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <div id="modal-card" class="modal-card">
+        <!-- Bagliori luminosi interni -->
+        <div class="modal-glow-top"></div>
+        <div class="modal-glow-bottom"></div>
+
+        <!-- Mascotte Idro triste con lacrima -->
+        <div class="modal-mascot-wrapper">
+          <div class="modal-mascot-shadow"></div>
+          <svg class="modal-mascot-svg" fill="none" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="sadModalBodyGrad" x1="20" x2="100" y1="10" y2="115" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8"></stop>
+                <stop offset="50%" stop-color="#06b6d4"></stop>
+                <stop offset="100%" stop-color="#0284c7"></stop>
+              </linearGradient>
+              <linearGradient id="sadModalHighlight" x1="30" x2="50" y1="25" y2="75" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"></stop>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+              </linearGradient>
+              <linearGradient id="modalTearGrad" x1="0" x2="0" y1="0" y2="1" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ffffff"></stop>
+                <stop offset="100%" stop-color="#7dd3fc"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Sagoma goccia principale -->
+            <path d="M60 12 C60 12 22 56 22 84 C22 104 39 116 60 116 C81 116 98 104 98 84 C98 56 60 12 60 12 Z" fill="url(#sadModalBodyGrad)" stroke="#ffffff" stroke-linejoin="round" stroke-width="2.5"></path>
+            <!-- Riflesso lucido -->
+            <path d="M60 20 C60 20 32 58 31 82 C30.6 92 34 98 34 98 C34 98 29 88 32 75 C35 60 55 27 60 20 Z" fill="url(#sadModalHighlight)"></path>
+            <circle cx="40" cy="42" fill="#ffffff" opacity="0.85" r="2.5"></circle>
+            <!-- Braccine che stringono il petto -->
+            <ellipse cx="28" cy="88" fill="#06b6d4" rx="4" ry="7" stroke="#ffffff" stroke-width="1.5" transform="rotate(-35 28 88)"></ellipse>
+            <ellipse cx="92" cy="88" fill="#06b6d4" rx="4" ry="7" stroke="#ffffff" stroke-width="1.5" transform="rotate(35 92 88)"></ellipse>
+            <!-- Guancette rosee tristi -->
+            <ellipse cx="38" cy="85" fill="#f43f5e" opacity="0.4" rx="5.5" ry="3"></ellipse>
+            <ellipse cx="82" cy="85" fill="#f43f5e" opacity="0.4" rx="5.5" ry="3"></ellipse>
+            <!-- Sopracciglia tristi -->
+            <path d="M40 66 Q45 69 51 68" fill="none" opacity="0.8" stroke="#001f26" stroke-linecap="round" stroke-width="2"></path>
+            <path d="M80 66 Q75 69 69 68" fill="none" opacity="0.8" stroke="#001f26" stroke-linecap="round" stroke-width="2"></path>
+            <!-- Occhi lucidi grandi -->
+            <ellipse cx="46" cy="76" fill="#001f26" rx="5.5" ry="7"></ellipse>
+            <circle cx="44" cy="73" fill="#ffffff" r="2.5"></circle>
+            <circle cx="48" cy="78" fill="#ffffff" r="1.5"></circle>
+            <ellipse cx="46" cy="80" fill="#38bdf8" opacity="0.7" rx="3.5" ry="1.5"></ellipse>
+            <ellipse cx="74" cy="76" fill="#001f26" rx="5.5" ry="7"></ellipse>
+            <circle cx="72" cy="73" fill="#ffffff" r="2.5"></circle>
+            <circle cx="76" cy="78" fill="#ffffff" r="1.5"></circle>
+            <ellipse cx="74" cy="80" fill="#38bdf8" opacity="0.7" rx="3.5" ry="1.5"></ellipse>
+            <!-- Lacrima animata cadente -->
+            <g class="tear-drop-anim">
+              <path d="M37 81 C37 81 33 87 33 90 C33 92.2 34.8 94 37 94 C39.2 94 41 92.2 41 90 C41 87 37 81 37 81 Z" fill="url(#modalTearGrad)" stroke="#38bdf8" stroke-width="0.8"></path>
+              <circle cx="36" cy="89" fill="#ffffff" r="1"></circle>
+            </g>
+            <!-- Bocca tremante triste -->
+            <path d="M54 86 Q60 81 66 86" fill="none" stroke="#001f26" stroke-linecap="round" stroke-width="2.5"></path>
+          </svg>
+        </div>
+
+        <!-- Titolo e Descrizione -->
+        <h3 id="modal-title" class="modal-title">Vuoi davvero ricominciare?</h3>
+        <p id="modal-desc" class="modal-description">
+          Se azzeri la giornata, perderai tutti i bicchieri registrati oggi. 💧
+        </p>
+
+        <!-- Pulsanti di azione del popup -->
+        <div class="modal-buttons">
+          <button id="modal-btn-cancel" class="btn-modal-primary" type="button">
+            <span>No, continuo!</span>
+          </button>
+          <button id="modal-btn-confirm" class="btn-modal-secondary" type="button">
+            <span>Sì, azzera</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Logica JavaScript esterna -->
+  <script src="script.js"></script>
+</body>
+</html>

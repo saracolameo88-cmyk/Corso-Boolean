@@ -1,0 +1,1022 @@
+/* ==========================================================================
+   === VARIABILI CSS E DESIGN SYSTEM (:root) ===
+   ========================================================================== */
+:root {
+  /* Palette Cromatica dal Design System IdroTrack */
+  --color-primary: #00687a;
+  --color-primary-hover: #005766;
+  --color-primary-container: #06b6d4;
+  --color-secondary: #0284c7;
+  --color-cyan-glow: #38bdf8;
+  --color-cyan-light: #acedff;
+  --color-bg-canvas: #ebf4f8;
+  --color-bg-app: #faf8ff;
+  --color-surface-card: #ffffff;
+  --color-surface-subtle: #f2f3ff;
+  --color-badge-bg: #e2f7fc;
+  --color-badge-border: #acedff;
+  --color-text-dark: #131b2e;
+  --color-text-muted: #3d494c;
+  --color-text-caption: #6d797d;
+  --color-border-card: rgba(218, 226, 253, 0.9);
+  --color-border-subtle: #dae2fd;
+
+  /* Tipografia */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Raggi di Curvatura */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Ombre */
+  --shadow-sm: 0 1px 3px rgba(19, 27, 46, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(2, 132, 199, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-btn: 0 6px 18px -2px rgba(0, 104, 122, 0.28);
+  --shadow-bubble: 0 4px 16px rgba(6, 182, 212, 0.12);
+}
+
+/* ==========================================================================
+   === RESET E STILI DI BASE ===
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Classe helper per font titoli */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Icone Material Symbols */
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   === CONTENITORE MOBILE CENTRATO (MAX 420px) ===
+   ========================================================================== */
+.app-frame {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background-color: var(--color-bg-app);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Cornice mobile elegante centrata su schermi desktop */
+@media (min-width: 480px) {
+  body {
+    padding: 20px 0;
+  }
+
+  .app-frame {
+    min-height: 844px;
+    border-radius: 40px;
+    box-shadow: 0 20px 48px rgba(19, 27, 46, 0.14);
+    border: 1px solid rgba(218, 226, 253, 0.7);
+    overflow: hidden;
+  }
+}
+
+/* Contenuto principale scorrevole */
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   === STATUS BAR (STILE iOS) ===
+   ========================================================================== */
+.status-bar {
+  padding: 10px 24px 4px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  letter-spacing: -0.2px;
+}
+
+.status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icon {
+  display: block;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   === HEADER ISTITUZIONALE ===
+   ========================================================================== */
+.main-body {
+  padding: 6px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #06b6d4, #22d3ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.35);
+  border: 2px solid rgba(172, 237, 255, 0.6);
+}
+
+.app-title {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  letter-spacing: -0.3px;
+}
+
+.btn-profile {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-profile:active {
+  transform: scale(0.95);
+  background-color: var(--color-surface-subtle);
+}
+
+/* Barra Data e Badge Obiettivo */
+.date-goal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(218, 226, 253, 0.7);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.date-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.date-indicator .material-symbols-rounded {
+  font-size: 16px;
+  color: var(--color-primary);
+}
+
+.goal-badge {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   === CARD 1: DASHBOARD METRICA (SPLIT HERO) ===
+   ========================================================================== */
+.metric-hero-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 70%);
+  pointer-events: none;
+}
+
+/* Colonna sinistra: Gauge circolare */
+.gauge-wrapper {
+  position: relative;
+  width: 106px;
+  height: 106px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-svg {
+  width: 106px;
+  height: 106px;
+  transform: rotate(-90deg);
+}
+
+.gauge-track {
+  fill: none;
+  stroke: var(--color-bg-canvas);
+  stroke-width: 8;
+}
+
+.gauge-progress {
+  fill: none;
+  stroke: #06b6d4;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 257.6;
+  stroke-dashoffset: 257.6;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gauge-center-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.gauge-drop-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.gauge-ratio {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-top: 2px;
+  line-height: 1;
+}
+
+/* Colonna destra: Metriche e statistiche */
+.metric-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-caption {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.metric-volume {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  letter-spacing: -0.3px;
+}
+
+.metric-count-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.count-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.current-count {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  line-height: 1;
+}
+
+.total-count {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.pct-badge {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* Barra di progresso orizzontale */
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-bg-canvas);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid rgba(218, 226, 253, 0.5);
+  margin-top: 4px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #06b6d4, #00687a);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   === CARD 2: TRACKER 8 BICCHIERI E STATO ===
+   ========================================================================== */
+.cups-tracker-card {
+  background: linear-gradient(135deg, #eef9fc 0%, #f4fbfe 50%, #ffffff 100%);
+  border: 1px solid var(--color-badge-border);
+  border-radius: var(--radius-xl);
+  padding: 14px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cups-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cups-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cups-status-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #06b6d4, #00687a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.3);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  flex-shrink: 0;
+}
+
+.cups-missing-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+
+.cups-subtitle {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+.cups-badge-completed {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Griglia degli 8 bicchieri */
+.cups-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.cup-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 2px 5px 2px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+.cup-slot:active {
+  transform: scale(0.92);
+}
+
+/* Bicchiere pieno */
+.cup-slot.filled {
+  background-color: #ffffff;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  box-shadow: 0 2px 4px rgba(6, 182, 212, 0.12);
+  outline: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+/* Bicchiere vuoto */
+.cup-slot.empty {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1.5px dashed #bcc9cd;
+  opacity: 0.75;
+}
+
+.cup-slot-label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  margin-top: 4px;
+  line-height: 1;
+}
+
+.cup-slot.filled .cup-slot-label {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.cup-slot.empty .cup-slot-label {
+  font-weight: 500;
+  color: var(--color-text-caption);
+}
+
+/* Animazione Pop sul bicchiere appena aggiunto */
+@keyframes cupPop {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cup-pop {
+  animation: cupPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reminder-caption {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   === CARD 3: MASCOTTE IDRO E FUMETTO ===
+   ========================================================================== */
+.mascot-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  position: relative;
+}
+
+/* Fumetto stile comic */
+.speech-bubble-container {
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  margin-bottom: 12px;
+  z-index: 2;
+}
+
+.speech-bubble {
+  background-color: #ffffff;
+  border: 2px solid rgba(6, 182, 212, 0.35);
+  border-radius: 18px;
+  padding: 8px 14px;
+  text-align: center;
+  box-shadow: var(--shadow-bubble);
+  position: relative;
+}
+
+.bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.bubble-name {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bubble-tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+
+.bubble-text {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  transition: opacity 0.2s ease;
+}
+
+/* Coda del fumetto verso il basso */
+.bubble-tail {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-right: 2px solid rgba(6, 182, 212, 0.35);
+  border-bottom: 2px solid rgba(6, 182, 212, 0.35);
+}
+
+/* Fluttuazione della Mascotte */
+@keyframes floatMascot {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.mascot-frame {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 6px 12px rgba(6, 182, 212, 0.18));
+  animation: floatMascot 3.2s ease-in-out infinite;
+}
+
+.mascot-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Selettore/Indicatore di livello */
+.tier-pills-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 4px 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tier-pills-label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-caption);
+  padding: 0 4px;
+}
+
+.tier-pill {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-text-caption);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tier-pill.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 4px rgba(4, 90, 189, 0.3);
+}
+
+/* ==========================================================================
+   === DOCK AZIONI INFERIORE (THUMB-ZONE) ===
+   ========================================================================== */
+.action-dock {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(218, 226, 253, 0.8);
+  padding: 14px 16px 12px 16px;
+  box-shadow: 0 -4px 16px rgba(19, 27, 46, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Pulsante Primario Aggiungi */
+.btn-primary-add {
+  width: 100%;
+  height: 48px;
+  background-color: #06B6D4;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+}
+
+.btn-primary-add:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary-add:active {
+  transform: scale(0.98);
+}
+
+.btn-primary-add.completed {
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  cursor: default;
+}
+
+/* Riga pulsanti secondari */
+.secondary-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-secondary {
+  height: 38px;
+  background-color: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-surface-subtle);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-secondary .material-symbols-rounded {
+  font-size: 16px;
+  color: var(--color-text-caption);
+}
+
+/* Didascalia footer */
+.footer-meta {
+  text-align: center;
+  padding-top: 2px;
+}
+
+.footer-meta p {
+  font-size: 10px;
+  color: var(--color-text-caption);
+  letter-spacing: -0.1px;
+}
+
+/* ==========================================================================
+   === MODALE POPUP CONFERMA AZZERAMENTO ===
+   ========================================================================== */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-card {
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 24px 20px 22px 20px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(172, 237, 255, 0.4);
+  max-width: 330px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #e0f2fe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.hidden .modal-card {
+  transform: scale(0.92);
+}
+
+/* Bagliori interni del popup */
+.modal-glow-top {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 110px;
+  height: 110px;
+  background-color: rgba(6, 182, 212, 0.12);
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.modal-glow-bottom {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 110px;
+  height: 110px;
+  background-color: rgba(56, 189, 248, 0.12);
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Wrapper mascotte con ombra azzurra */
+.modal-mascot-wrapper {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.modal-mascot-shadow {
+  position: absolute;
+  bottom: 0px;
+  width: 76px;
+  height: 14px;
+  background-color: rgba(6, 182, 212, 0.2);
+  border-radius: 50%;
+  filter: blur(6px);
+}
+
+.modal-mascot-svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 6px rgba(6, 182, 212, 0.15));
+}
+
+/* Animazione goccia di lacrima */
+@keyframes modalTearDrop {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(3.5px);
+    opacity: 1;
+  }
+}
+
+.tear-drop-anim {
+  animation: modalTearDrop 2.2s ease-in-out infinite;
+}
+
+/* Titolo e descrizione */
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.modal-description {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  margin-bottom: 22px;
+  font-weight: 400;
+  max-width: 280px;
+}
+
+/* Pulsanti del popup */
+.modal-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Pulsante principale: No, continuo! */
+.btn-modal-primary {
+  width: 100%;
+  height: 48px;
+  background-color: #06B6D4;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25);
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-modal-primary:hover {
+  background-color: #0891b2;
+}
+
+.btn-modal-primary:active {
+  transform: scale(0.98);
+}
+
+/* Pulsante secondario: Sì, azzera */
+.btn-modal-secondary {
+  width: 100%;
+  height: 42px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-secondary:hover {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border-color: #fecdd3;
+}
+
+.btn-modal-secondary:active {
+  transform: scale(0.98);
+}
